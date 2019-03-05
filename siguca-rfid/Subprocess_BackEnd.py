@@ -41,7 +41,7 @@ import UtilImg
 #SETTINGS AND CONFIGURATIONS
 #IP OF NODE JS SERVER WHERE SIGUCA IS RUNNING
 #server_IP='siguca.gps.int'
-server_IP='siguca.gps.int'
+server_IP='siguca.int'
 #PORT OF THE MONGODB
 port='27017'
 #PORT OF OF SIGUCA NODE JS PORT
@@ -318,15 +318,15 @@ def obtieneTipoUsuario(dec,listTipo):
         #Se crea el entorno gráfico  para realizar las marcas
         rootTipo = Tk()
         rootTipo.attributes('-fullscreen', True)
-        rootTipo.config(height=600, width=600,cursor="none",bg="#ffffff")
+        rootTipo.config(background="black", height=600, width=600,cursor="none",bg="#ffffff")
 
-        lblTitle = Label(rootTipo,text="Seleccione un tipo de usuario",bd="2",bg= "#ffffff", fg="#55aa55", font="Helveltica 30 bold").place(x=100,y=2)
+        lblTitle = Label(rootTipo,text="Seleccione Un Tipo De Usuario",bd="2",bg= "white", fg="white", background="black", font="Times 40 bold").place(x=50,y=2)
         #Muestra los roles del usuario al cual le pertenece el llavin
-        listBox = Listbox(rootTipo,bd="0",fg="#888888",font="Helveltica 30 bold",selectbackground="#00bb00",selectforeground="#ffffff",height=500,selectborderwidth=2, activestyle=NONE,highlightthickness=0,justify="center")
-        listBox.place(x=25,y=100)
+        listBox = Listbox(rootTipo,bd="0",fg="#888888",font="Times 40 bold",selectbackground="#00bb00",selectforeground="#ffffff",height=500,selectborderwidth=2, activestyle=NONE,highlightthickness=0,justify="center")
+        listBox.place(x=950,y=100)
 
 	yAxis = 100
-	xAxis = 120
+	xAxis = 100
 	buttonList = list();
 	count = 1
 	index = 0
@@ -341,27 +341,27 @@ def obtieneTipoUsuario(dec,listTipo):
 	    button = None
 	    if str(profile) == "Administrador":
 	        button = Button(rootTipo, text=str(profile), command=lambda: obtieneMarca(dec, adminProfile), fg="white",
-		    activeforeground="white", activebackground="green", bg="green", width=20, height=4, bd=0,
+		    activeforeground="white", activebackground="red", bg="red", width=36, height=4, bd=0,
 		    font="Helveltica 17 bold")
 
 	    if str(profile) == "Supervisor":
 		    button = Button(rootTipo, text=str(profile), command=lambda: obtieneMarca(dec, supervisorProfile), fg="white",
-		    activeforeground="white", activebackground="green", bg="green", width=20, height=4, bd=0,
+		    activeforeground="white", activebackground="blue", bg="blue", width=36, height=4, bd=0,
 		    font="Helveltica 17 bold")
 
 	    if str(profile) == "Empleado":
 		    button = Button(rootTipo, text=str(profile), command=lambda: obtieneMarca(dec, employeeProfile), fg="white",
-		    activeforeground="white", activebackground="green", bg="green", width=20, height=4, bd=0,
+		    activeforeground="white", activebackground="green", bg="green", width=36, height=4, bd=0,
 		    font="Helveltica 17 bold")
 
 	    if str(profile) == "Usuario sin acceso web":
 		    button = Button(rootTipo, text=str(profile), command=lambda: obtieneMarca(dec, noWebAccessProfile), fg="white",
-		    activeforeground="white", activebackground="green", bg="green", width=20, height=4, bd=0,
+		    activeforeground="white", activebackground="green", bg="green", width=36, height=4, bd=0,
 		    font="Helveltica 17 bold")
 
 	    if str(profile) == "Profesor":
 		    button = Button(rootTipo, text=str(profile), command=lambda: obtieneMarca(dec, professorProfile), fg="white",
-		    activeforeground="white", activebackground="green", bg="green", width=20, height=4, bd=0,
+		    activeforeground="white", activebackground="gray", bg="gray", width=36, height=4, bd=0,
 		    font="Helveltica 17 bold")
 
 	    button.place(x=xAxis,y=yAxis)
@@ -376,7 +376,7 @@ def obtieneTipoUsuario(dec,listTipo):
 
         listBox.insert(0,*buttonList)
 
-        buttonCancelar = Button(rootTipo,text="Cancelar",command=lambda: rootTipo.destroy(),fg="white",activeforeground="white",activebackground="red",bg="red",width=15,height=2,bd=6,font="Helveltica 17 bold").place(x=480,y=350)
+        buttonCancelar = Button(rootTipo,text="Cancelar",command=lambda: rootTipo.destroy(),fg="white",activeforeground="white",activebackground="red",bg="red",width=15,height=2,bd=6,font="Helveltica 17 bold").place(x=280,y=350)
 
        # buttonAceptar = Button(rootTipo,text="Aceptar",command= lambda: obtieneTipoSeleccionado(dec,listBox),fg="white",activeforeground="white",activebackground="#008800",bg="#00cc00",width=15,height=2,bd=6,font="Helveltica 17 bold").place(x=500,y=200)
 
@@ -392,7 +392,7 @@ while True:
         dec=int(dec)
     except:
         dec = "None"
-        print "Juan Error"
+        print "Error: Usuario No Encontrado"
         pass
 
     print dec
